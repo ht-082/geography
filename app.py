@@ -49,7 +49,10 @@ def get_pnu_from_address(address, kakao_api_key):
 
 
 def get_land_area_vworld(pnu, vworld_key):
-    url = "http://api.vworld.kr/ned/data/getLandCharacteristics"
+    url = "https://api.vworld.kr/ned/data/getLandCharacteristics"
+    headers = {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+    }
     params = {
         'key': vworld_key,
         'domain': 'https://geoscape.onrender.com/', # 실제 배포된 도메인 주소로 변경
@@ -59,7 +62,7 @@ def get_land_area_vworld(pnu, vworld_key):
     }
     
     try:
-        response = requests.get(url, params=params)
+        response = requests.get(url, headers=headers, params=params, timeout=15)
         data = response.json()
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"브이월드 API 통신 오류: {str(e)}")
