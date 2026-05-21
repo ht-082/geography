@@ -52,7 +52,7 @@ def get_land_area_vworld(pnu, vworld_key):
     url = "http://api.vworld.kr/ned/data/getLandCharacteristics"
     params = {
         'key': vworld_key,
-        'domain': 'http://localhost',
+        'domain': 'https://geoscape.onrender.com/', # 실제 배포된 도메인 주소로 변경
         'pnu': pnu,
         'format': 'json',
         'numOfRows': '100'
