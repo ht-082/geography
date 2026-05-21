@@ -55,7 +55,7 @@ def get_land_area_vworld(pnu, vworld_key):
     }
     params = {
         'key': vworld_key,
-        'domain': 'https://geoscape.onrender.com/', # 실제 배포된 도메인 주소로 변경
+        'domain': 'http://15.164.224.75/', # 실제 배포된 도메인 주소로 변경
         'pnu': pnu,
         'format': 'json',
         'numOfRows': '100'
